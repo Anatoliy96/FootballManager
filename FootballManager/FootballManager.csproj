@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8EC8E775-4E20-4B98-B9CF-3D04A472C24F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FootballManager</RootNamespace>
+    <AssemblyName>FootballManager</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\Clubs\ClubBLL.cs" />
+    <Compile Include="BusinessLayer\Clubs\ClubValidator.cs" />
+    <Compile Include="BusinessLayer\Clubs\ClubValidationResponse.cs" />
+    <Compile Include="BusinessLayer\Coaches\CoachBLL.cs" />
+    <Compile Include="BusinessLayer\Coaches\CoachValidationResponse.cs" />
+    <Compile Include="BusinessLayer\Coaches\CoachValidator.cs" />
+    <Compile Include="BusinessLayer\Players\PlayersBLL.cs" />
+    <Compile Include="BusinessLayer\Players\PlayerValidationResponse.cs" />
+    <Compile Include="BusinessLayer\Players\PlayerValidator.cs" />
+    <Compile Include="BusinessLayer\Staff\StaffBLL.cs" />
+    <Compile Include="BusinessLayer\Staff\StaffValidationResponse.cs" />
+    <Compile Include="BusinessLayer\Staff\StaffValidator.cs" />
+    <Compile Include="BusinessLayer\Teams\TeamsBLL.cs" />
+    <Compile Include="BusinessLayer\Teams\TeamValidationResponse.cs" />
+    <Compile Include="BusinessLayer\Teams\TeamValidator.cs" />
+    <Compile Include="DataAccess\ClubDAO.cs" />
+    <Compile Include="DataAccess\CoachesDAO.cs" />
+    <Compile Include="DataAccess\ConnectionSingleton.cs" />
+    <Compile Include="DataAccess\DataAccessResponse.cs" />
+    <Compile Include="DataAccess\DataBaseCommand.cs" />
+    <Compile Include="DataAccess\PlayersDAO.cs" />
+    <Compile Include="DataAccess\StaffDAO.cs" />
+    <Compile Include="DataAccess\TeamsDAO.cs" />
+    <Compile Include="Model\BookMakers.cs" />
+    <Compile Include="Model\Club.cs" />
+    <Compile Include="Model\Coaches.cs" />
+    <Compile Include="Model\Players.cs" />
+    <Compile Include="Model\Ratings.cs" />
+    <Compile Include="Model\Response\Response.cs" />
+    <Compile Include="Model\Stadiums.cs" />
+    <Compile Include="Model\Staff.cs" />
+    <Compile Include="Model\Teams.cs" />
+    <Compile Include="Presentation\INSERT\Forms\InsertBook_Maker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertBook_Maker.Designer.cs">
+      <DependentUpon>InsertBook_Maker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertClubs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertClubs.Designer.cs">
+      <DependentUpon>InsertClubs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertCoaches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertCoaches.Designer.cs">
+      <DependentUpon>InsertCoaches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertPlayer.Designer.cs">
+      <DependentUpon>InsertPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertRatings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertRatings.Designer.cs">
+      <DependentUpon>InsertRatings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertStadiums.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertStadiums.Designer.cs">
+      <DependentUpon>InsertStadiums.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertStaff.Designer.cs">
+      <DependentUpon>InsertStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertTeams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\Forms\InsertTeams.Designer.cs">
+      <DependentUpon>InsertTeams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\InsertDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\InsertDataForm.Designer.cs">
+      <DependentUpon>InsertDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListBook_MakersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListBook_MakersForm.Designer.cs">
+      <DependentUpon>ListBook_MakersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListCoachesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListCoachesForm.Designer.cs">
+      <DependentUpon>ListCoachesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListIgrachiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListIgrachiForm.Designer.cs">
+      <DependentUpon>ListIgrachiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListKluboveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListKluboveForm.Designer.cs">
+      <DependentUpon>ListKluboveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListRatingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListRatingsForm.Designer.cs">
+      <DependentUpon>ListRatingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\LIstStadiumsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\LIstStadiumsForm.Designer.cs">
+      <DependentUpon>LIstStadiumsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListStaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListStaffForm.Designer.cs">
+      <DependentUpon>ListStaffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListTeamsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DELETE LIST\ListTeamsForm.Designer.cs">
+      <DependentUpon>ListTeamsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\INSERT\InsertMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\INSERT\InsertMainMenu.Designer.cs">
+      <DependentUpon>InsertMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\MAIN MENU\MainManu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\MAIN MENU\MainManu.Designer.cs">
+      <DependentUpon>MainManu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ThemeColor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Presentation\UPDATE\UpdateDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\UPDATE\UpdateDataForm.Designer.cs">
+      <DependentUpon>UpdateDataForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Presentation\INSERT\Forms\InsertBook_Maker.resx">
+      <DependentUpon>InsertBook_Maker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\Forms\InsertClubs.resx">
+      <DependentUpon>InsertClubs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\Forms\InsertCoaches.resx">
+      <DependentUpon>InsertCoaches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\Forms\InsertPlayer.resx">
+      <DependentUpon>InsertPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\Forms\InsertRatings.resx">
+      <DependentUpon>InsertRatings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\Forms\InsertStadiums.resx">
+      <DependentUpon>InsertStadiums.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\Forms\InsertStaff.resx">
+      <DependentUpon>InsertStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\Forms\InsertTeams.resx">
+      <DependentUpon>InsertTeams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\InsertDataForm.resx">
+      <DependentUpon>InsertDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DELETE LIST\ListBook_MakersForm.resx">
+      <DependentUpon>ListBook_MakersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DELETE LIST\ListCoachesForm.resx">
+      <DependentUpon>ListCoachesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DELETE LIST\ListIgrachiForm.resx">
+      <DependentUpon>ListIgrachiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DELETE LIST\ListKluboveForm.resx">
+      <DependentUpon>ListKluboveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DELETE LIST\ListRatingsForm.resx">
+      <DependentUpon>ListRatingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DELETE LIST\LIstStadiumsForm.resx">
+      <DependentUpon>LIstStadiumsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DELETE LIST\ListStaffForm.resx">
+      <DependentUpon>ListStaffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DELETE LIST\ListTeamsForm.resx">
+      <DependentUpon>ListTeamsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\INSERT\InsertMainMenu.resx">
+      <DependentUpon>InsertMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\MAIN MENU\MainManu.resx">
+      <DependentUpon>MainManu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Presentation\UPDATE\UpdateDataForm.resx">
+      <DependentUpon>UpdateDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\club logo.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
